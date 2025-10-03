@@ -11,7 +11,27 @@ namespace to_do_list_app
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
+        }
+    }
+
+    public class TaskItem(string name, int priority, string category, DateTime deadLine, List<TaskItem> tasks)
+    {
+        // fields and constructor
+        public string Name { get; set; } = name;
+        public int Priority { get; set; } = priority;
+        public string Category { get; set; } = category;
+        public DateTime DeadLine { get; set; } = deadLine;
+        public bool IsCompleted { get; set; } = false;
+
+        public List<TaskItem> subTasks = tasks;
+
+        // methods
+        public void makeRow(DataGridView table)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            table.Rows.Add(IsCompleted, Name, Priority.ToString(), Category, DeadLine);
+            table.Rows[table.Rows.Count - 1].Tag = this;
         }
     }
 }
