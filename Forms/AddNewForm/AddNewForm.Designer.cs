@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addNewForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btn_close = new Button();
@@ -350,6 +351,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(886, 710);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "addNewForm";
             Text = "To Do List App - Add New";
             Load += AddNewForm_Load;

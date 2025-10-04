@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addNewSubForm));
             tableLayoutPanel1_new = new TableLayoutPanel();
             tableLayoutPanel2_new = new TableLayoutPanel();
             lbl_deadline_new = new Label();
@@ -209,6 +210,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(886, 472);
             Controls.Add(tableLayoutPanel1_new);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "addNewSubForm";
             Text = "To Do List App - Add New SubTask";
             tableLayoutPanel1_new.ResumeLayout(false);

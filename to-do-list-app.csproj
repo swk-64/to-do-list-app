@@ -7,7 +7,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>hollow.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="hollow.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Forms\AddNewSubForm\AddNewSubForm.cs">

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
@@ -312,6 +313,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(886, 710);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ShowForm";
             Text = "To Do List App - Task View";
             Load += ShowForm_Load;
