@@ -32,6 +32,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             btn_close = new Button();
             btn_ok = new Button();
+            cb_iscompleted = new CheckBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             lbl_deadline = new Label();
             txbox_category = new TextBox();
@@ -83,6 +84,7 @@
             // 
             flowLayoutPanel1.Controls.Add(btn_close);
             flowLayoutPanel1.Controls.Add(btn_ok);
+            flowLayoutPanel1.Controls.Add(cb_iscompleted);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel1.Location = new Point(3, 662);
@@ -108,6 +110,16 @@
             btn_ok.Text = "Ok";
             btn_ok.UseVisualStyleBackColor = true;
             btn_ok.Click += btn_ok_Click;
+            // 
+            // cb_iscompleted
+            // 
+            cb_iscompleted.AutoSize = true;
+            cb_iscompleted.Location = new Point(382, 3);
+            cb_iscompleted.Name = "cb_iscompleted";
+            cb_iscompleted.Size = new Size(183, 36);
+            cb_iscompleted.TabIndex = 3;
+            cb_iscompleted.Text = "Is completed";
+            cb_iscompleted.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -191,7 +203,9 @@
             // 
             // dtp_deadline
             // 
+            dtp_deadline.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dtp_deadline.Dock = DockStyle.Fill;
+            dtp_deadline.Format = DateTimePickerFormat.Custom;
             dtp_deadline.Location = new Point(153, 132);
             dtp_deadline.Name = "dtp_deadline";
             dtp_deadline.Size = new Size(724, 39);
@@ -237,7 +251,6 @@
             dgv_items.Location = new Point(3, 43);
             dgv_items.MultiSelect = false;
             dgv_items.Name = "dgv_items";
-            dgv_items.ReadOnly = true;
             dgv_items.RowHeadersVisible = false;
             dgv_items.RowHeadersWidth = 82;
             dgv_items.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -245,13 +258,13 @@
             dgv_items.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_items.Size = new Size(874, 369);
             dgv_items.TabIndex = 6;
+            dgv_items.CellValueChanged += dgv_items_Check;
             // 
             // col_completed
             // 
             col_completed.HeaderText = "Completed";
             col_completed.MinimumWidth = 10;
             col_completed.Name = "col_completed";
-            col_completed.ReadOnly = true;
             // 
             // col_name
             // 
@@ -338,10 +351,11 @@
             ClientSize = new Size(886, 710);
             Controls.Add(tableLayoutPanel1);
             Name = "addNewForm";
-            Text = "Form2";
+            Text = "To Do List App - Add New";
             Load += AddNewForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nud_priority).EndInit();
@@ -373,11 +387,12 @@
         private Label lbl_subtasks;
         private DateTimePicker dtp_deadline;
         private DataGridView dgv_items;
+        private NumericUpDown nud_priority;
+        private CheckBox cb_iscompleted;
         private DataGridViewCheckBoxColumn col_completed;
         private DataGridViewTextBoxColumn col_name;
         private DataGridViewTextBoxColumn col_priority;
         private DataGridViewTextBoxColumn col_category;
         private DataGridViewTextBoxColumn col_deadline;
-        private NumericUpDown nud_priority;
     }
 }

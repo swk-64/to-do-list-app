@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace to_do_list_app
 {
 
@@ -22,7 +24,7 @@ namespace to_do_list_app
 
             if (add_new_dial.DialogResult == DialogResult.OK)
             {
-                TaskItem newTask = new TaskItem(add_new_dial.taskName, add_new_dial.taskPriority,
+                TaskItem newTask = new TaskItem(add_new_dial.isCompleted, add_new_dial.taskName, add_new_dial.taskPriority,
                     add_new_dial.taskCategory, add_new_dial.taskDeadLine, add_new_dial.tasks);
                 tasks.Add(newTask);
                 newTask.makeRow(dgv_items);
@@ -45,9 +47,9 @@ namespace to_do_list_app
                     selectedTask.Priority = add_new_dial.taskPriority;
                     selectedTask.Category = add_new_dial.taskCategory;
                     selectedTask.DeadLine = add_new_dial.taskDeadLine;
-                    selectedTask.IsCompleted = false;
+                    selectedTask.IsCompleted = add_new_dial.isCompleted;
 
-                    dgv_items.CurrentRow.SetValues(false, add_new_dial.taskName, add_new_dial.taskPriority,
+                    dgv_items.CurrentRow.SetValues(add_new_dial.isCompleted, add_new_dial.taskName, add_new_dial.taskPriority,
                         add_new_dial.taskCategory, add_new_dial.taskDeadLine, add_new_dial.tasks);
                 }
             }
@@ -70,6 +72,21 @@ namespace to_do_list_app
                 TaskItem selectedTask = (TaskItem)dgv_items.CurrentRow.Tag;
                 ShowForm show_dial = new ShowForm(selectedTask);
                 show_dial.ShowDialog();
+                if (show_dial.DialogResult == DialogResult.OK)
+                {
+                    selectedTask.IsCompleted = show_dial.isCompleted;
+                    dgv_items.CurrentRow.Cells[0].Value = show_dial.isCompleted;
+                }
+            }
+        }
+
+        private void dgv_items_Check(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_items.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && dgv_items.Rows.Count != 0)
+            {
+                TaskItem selectedTask = (TaskItem)dgv_items.CurrentRow.Tag;
+                selectedTask.IsCompleted = Convert.ToBoolean(dgv_items.Rows[e.RowIndex].Cells[0].Value);
+
             }
         }
     }

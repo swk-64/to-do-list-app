@@ -12,6 +12,8 @@ namespace to_do_list_app
 {
     public partial class ShowForm : Form
     {
+        public bool isCompleted { get; private set; }
+
         public ShowForm()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace to_do_list_app
             nud_priority.Value = item.Priority;
             txbox_category.Text = item.Category;
             dtp_deadline.Value = item.DeadLine;
+            cb_iscompleted.Checked = item.IsCompleted;
 
             foreach (var subtask in item.subTasks)
             {
@@ -37,13 +40,14 @@ namespace to_do_list_app
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_ok_Click(object sender, EventArgs e)
         {
+            isCompleted = cb_iscompleted.Checked;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

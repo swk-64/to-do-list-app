@@ -125,7 +125,6 @@
             dgv_items.Location = new Point(3, 3);
             dgv_items.MultiSelect = false;
             dgv_items.Name = "dgv_items";
-            dgv_items.ReadOnly = true;
             dgv_items.RowHeadersVisible = false;
             dgv_items.RowHeadersWidth = 82;
             dgv_items.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -133,13 +132,13 @@
             dgv_items.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_items.Size = new Size(768, 473);
             dgv_items.TabIndex = 5;
+            dgv_items.CellValueChanged += dgv_items_Check;
             // 
             // col_completed
             // 
             col_completed.HeaderText = "Completed";
             col_completed.MinimumWidth = 10;
             col_completed.Name = "col_completed";
-            col_completed.ReadOnly = true;
             // 
             // col_name
             // 
@@ -176,7 +175,7 @@
             ClientSize = new Size(774, 529);
             Controls.Add(tableLayoutPanel1);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "To Do List App";
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgv_items).EndInit();
             ResumeLayout(false);

@@ -15,14 +15,14 @@ namespace to_do_list_app
         }
     }
 
-    public class TaskItem(string name, int priority, string category, DateTime deadLine, List<TaskItem> tasks)
+    public class TaskItem(bool IsCompleted, string name, int priority, string category, DateTime deadLine, List<TaskItem> tasks)
     {
         // fields and constructor
         public string Name { get; set; } = name;
         public int Priority { get; set; } = priority;
         public string Category { get; set; } = category;
         public DateTime DeadLine { get; set; } = deadLine;
-        public bool IsCompleted { get; set; } = false;
+        public bool IsCompleted { get; set; } = IsCompleted;
 
         public List<TaskItem> subTasks = tasks;
 

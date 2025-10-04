@@ -32,6 +32,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             button1 = new Button();
             button2 = new Button();
+            cb_iscompleted = new CheckBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             label3 = new Label();
             txbox_category = new TextBox();
@@ -78,6 +79,7 @@
             // 
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Controls.Add(cb_iscompleted);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
             flowLayoutPanel1.Location = new Point(3, 662);
@@ -93,7 +95,7 @@
             button1.TabIndex = 0;
             button1.Text = "Cancel";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += btn_cancel_Click;
             // 
             // button2
             // 
@@ -103,7 +105,17 @@
             button2.TabIndex = 1;
             button2.Text = "Ok";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += btn_ok_Click;
+            // 
+            // cb_iscompleted
+            // 
+            cb_iscompleted.AutoSize = true;
+            cb_iscompleted.Location = new Point(382, 3);
+            cb_iscompleted.Name = "cb_iscompleted";
+            cb_iscompleted.Size = new Size(183, 36);
+            cb_iscompleted.TabIndex = 3;
+            cb_iscompleted.Text = "Is completed";
+            cb_iscompleted.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -142,6 +154,7 @@
             // txbox_category
             // 
             txbox_category.Dock = DockStyle.Fill;
+            txbox_category.Enabled = false;
             txbox_category.Location = new Point(153, 89);
             txbox_category.Name = "txbox_category";
             txbox_category.ReadOnly = true;
@@ -181,6 +194,7 @@
             // txbox_name
             // 
             txbox_name.Dock = DockStyle.Fill;
+            txbox_name.Enabled = false;
             txbox_name.Location = new Point(153, 3);
             txbox_name.Name = "txbox_name";
             txbox_name.ReadOnly = true;
@@ -190,6 +204,7 @@
             // nud_priority
             // 
             nud_priority.Dock = DockStyle.Fill;
+            nud_priority.Enabled = false;
             nud_priority.Location = new Point(153, 46);
             nud_priority.Name = "nud_priority";
             nud_priority.ReadOnly = true;
@@ -198,8 +213,10 @@
             // 
             // dtp_deadline
             // 
+            dtp_deadline.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             dtp_deadline.Dock = DockStyle.Fill;
             dtp_deadline.Enabled = false;
+            dtp_deadline.Format = DateTimePickerFormat.Custom;
             dtp_deadline.Location = new Point(153, 132);
             dtp_deadline.Name = "dtp_deadline";
             dtp_deadline.Size = new Size(724, 39);
@@ -296,10 +313,11 @@
             ClientSize = new Size(886, 710);
             Controls.Add(tableLayoutPanel1);
             Name = "ShowForm";
-            Text = "Form2";
+            Text = "To Do List App - Task View";
             Load += ShowForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nud_priority).EndInit();
@@ -332,5 +350,6 @@
         private DataGridViewTextBoxColumn col_deadline;
         private NumericUpDown nud_priority;
         private DateTimePicker dtp_deadline;
+        private CheckBox cb_iscompleted;
     }
 }
