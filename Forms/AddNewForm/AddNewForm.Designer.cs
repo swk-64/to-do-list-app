@@ -35,12 +35,12 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             lbl_deadline = new Label();
             txbox_category = new TextBox();
-            txbox_priority = new TextBox();
             lbl_category = new Label();
             lbl_priority = new Label();
             lbl_name = new Label();
             txbox_name = new TextBox();
             dtp_deadline = new DateTimePicker();
+            nud_priority = new NumericUpDown();
             tableLayoutPanel3 = new TableLayoutPanel();
             dgv_items = new DataGridView();
             col_completed = new DataGridViewCheckBoxColumn();
@@ -56,6 +56,7 @@
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nud_priority).BeginInit();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_items).BeginInit();
             flowLayoutPanel3.SuspendLayout();
@@ -95,7 +96,7 @@
             btn_close.Name = "btn_close";
             btn_close.Size = new Size(150, 46);
             btn_close.TabIndex = 0;
-            btn_close.Text = "Close";
+            btn_close.Text = "Cancel";
             btn_close.UseVisualStyleBackColor = true;
             // 
             // btn_ok
@@ -115,12 +116,12 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(lbl_deadline, 0, 3);
             tableLayoutPanel2.Controls.Add(txbox_category, 1, 2);
-            tableLayoutPanel2.Controls.Add(txbox_priority, 1, 1);
             tableLayoutPanel2.Controls.Add(lbl_category, 0, 2);
             tableLayoutPanel2.Controls.Add(lbl_priority, 0, 1);
             tableLayoutPanel2.Controls.Add(lbl_name, 0, 0);
             tableLayoutPanel2.Controls.Add(txbox_name, 1, 0);
             tableLayoutPanel2.Controls.Add(dtp_deadline, 1, 3);
+            tableLayoutPanel2.Controls.Add(nud_priority, 1, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -149,14 +150,6 @@
             txbox_category.Name = "txbox_category";
             txbox_category.Size = new Size(724, 39);
             txbox_category.TabIndex = 7;
-            // 
-            // txbox_priority
-            // 
-            txbox_priority.Dock = DockStyle.Fill;
-            txbox_priority.Location = new Point(153, 46);
-            txbox_priority.Name = "txbox_priority";
-            txbox_priority.Size = new Size(724, 39);
-            txbox_priority.TabIndex = 6;
             // 
             // lbl_category
             // 
@@ -204,6 +197,14 @@
             dtp_deadline.Size = new Size(724, 39);
             dtp_deadline.TabIndex = 11;
             // 
+            // nud_priority
+            // 
+            nud_priority.Dock = DockStyle.Fill;
+            nud_priority.Location = new Point(153, 46);
+            nud_priority.Name = "nud_priority";
+            nud_priority.Size = new Size(724, 39);
+            nud_priority.TabIndex = 12;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
@@ -217,7 +218,7 @@
             tableLayoutPanel3.RowCount = 3;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel3.Size = new Size(880, 475);
             tableLayoutPanel3.TabIndex = 4;
             // 
@@ -242,7 +243,7 @@
             dgv_items.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_items.ScrollBars = ScrollBars.Vertical;
             dgv_items.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_items.Size = new Size(874, 379);
+            dgv_items.Size = new Size(874, 369);
             dgv_items.TabIndex = 6;
             // 
             // col_completed
@@ -286,9 +287,9 @@
             flowLayoutPanel3.Controls.Add(btn);
             flowLayoutPanel3.Controls.Add(btn_edit);
             flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.Location = new Point(3, 428);
+            flowLayoutPanel3.Location = new Point(3, 418);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(874, 44);
+            flowLayoutPanel3.Size = new Size(874, 54);
             flowLayoutPanel3.TabIndex = 3;
             // 
             // btn_remove
@@ -299,6 +300,7 @@
             btn_remove.TabIndex = 0;
             btn_remove.Text = "Remove";
             btn_remove.UseVisualStyleBackColor = true;
+            btn_remove.Click += btn_remove_Click;
             // 
             // btn
             // 
@@ -318,6 +320,7 @@
             btn_edit.TabIndex = 2;
             btn_edit.Text = "Edit";
             btn_edit.UseVisualStyleBackColor = true;
+            btn_edit.Click += btn_edit_Click;
             // 
             // lbl_subtasks
             // 
@@ -341,6 +344,7 @@
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nud_priority).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_items).EndInit();
@@ -354,7 +358,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Label lbl_deadline;
         private TextBox txbox_category;
-        private TextBox txbox_priority;
         private Label lbl_category;
         private Label lbl_priority;
         private Label lbl_name;
@@ -375,5 +378,6 @@
         private DataGridViewTextBoxColumn col_priority;
         private DataGridViewTextBoxColumn col_category;
         private DataGridViewTextBoxColumn col_deadline;
+        private NumericUpDown nud_priority;
     }
 }

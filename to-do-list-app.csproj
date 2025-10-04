@@ -10,10 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="AddNewSubForm.cs">
+    <Compile Update="Forms\AddNewSubForm\AddNewSubForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ShowForm.cs">
+    <Compile Update="Forms\ShowForm\ShowForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

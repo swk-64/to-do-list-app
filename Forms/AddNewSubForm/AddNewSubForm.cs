@@ -24,15 +24,19 @@ namespace to_do_list_app
             InitializeComponent();
         }
 
-        private void AddNewSubForm_Load(object sender, EventArgs e)
+        public addNewSubForm(TaskItem item)
         {
-
+            InitializeComponent();
+            txbox_name.Text = item.Name;
+            txbox_category.Text = item.Category;
+            nud_priority.Text = item.Priority.ToString();
+            dtp_deadline.Value = item.DeadLine;
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
             taskName = txbox_name.Text;
-            taskPriority = int.Parse(txbox_priority.Text);
+            taskPriority = (int)nud_priority.Value;
             taskCategory = txbox_category.Text;
             taskDeadLine = dtp_deadline.Value;
             isCompleted = false;

@@ -1,6 +1,6 @@
 ﻿namespace to_do_list_app
 {
-    partial class ShowFormForm
+    partial class ShowForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,27 @@
             button2 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             label3 = new Label();
-            textBox5 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
+            txbox_category = new TextBox();
             label4 = new Label();
             label2 = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txbox_name = new TextBox();
+            nud_priority = new NumericUpDown();
+            dtp_deadline = new DateTimePicker();
             tableLayoutPanel3 = new TableLayoutPanel();
+            dgv_items = new DataGridView();
+            col_completed = new DataGridViewCheckBoxColumn();
+            col_name = new DataGridViewTextBoxColumn();
+            col_priority = new DataGridViewTextBoxColumn();
+            col_category = new DataGridViewTextBoxColumn();
+            col_deadline = new DataGridViewTextBoxColumn();
             label5 = new Label();
-            listView1 = new ListView();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nud_priority).BeginInit();
             tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_items).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -84,8 +91,9 @@
             button1.Name = "button1";
             button1.Size = new Size(150, 46);
             button1.TabIndex = 0;
-            button1.Text = "Close";
+            button1.Text = "Cancel";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -95,6 +103,7 @@
             button2.TabIndex = 1;
             button2.Text = "Ok";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -102,13 +111,13 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(label3, 0, 3);
-            tableLayoutPanel2.Controls.Add(textBox5, 1, 3);
-            tableLayoutPanel2.Controls.Add(textBox3, 1, 2);
-            tableLayoutPanel2.Controls.Add(textBox2, 1, 1);
+            tableLayoutPanel2.Controls.Add(txbox_category, 1, 2);
             tableLayoutPanel2.Controls.Add(label4, 0, 2);
             tableLayoutPanel2.Controls.Add(label2, 0, 1);
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
-            tableLayoutPanel2.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel2.Controls.Add(txbox_name, 1, 0);
+            tableLayoutPanel2.Controls.Add(nud_priority, 1, 1);
+            tableLayoutPanel2.Controls.Add(dtp_deadline, 1, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 3);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -130,32 +139,14 @@
             label3.TabIndex = 10;
             label3.Text = "Deadline";
             // 
-            // textBox5
+            // txbox_category
             // 
-            textBox5.Dock = DockStyle.Fill;
-            textBox5.Location = new Point(153, 132);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(724, 39);
-            textBox5.TabIndex = 9;
-            // 
-            // textBox3
-            // 
-            textBox3.Dock = DockStyle.Fill;
-            textBox3.Location = new Point(153, 89);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(724, 39);
-            textBox3.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Location = new Point(153, 46);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(724, 39);
-            textBox2.TabIndex = 6;
+            txbox_category.Dock = DockStyle.Fill;
+            txbox_category.Location = new Point(153, 89);
+            txbox_category.Name = "txbox_category";
+            txbox_category.ReadOnly = true;
+            txbox_category.Size = new Size(724, 39);
+            txbox_category.TabIndex = 7;
             // 
             // label4
             // 
@@ -187,21 +178,39 @@
             label1.TabIndex = 1;
             label1.Text = "Name";
             // 
-            // textBox1
+            // txbox_name
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(153, 3);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(724, 39);
-            textBox1.TabIndex = 2;
+            txbox_name.Dock = DockStyle.Fill;
+            txbox_name.Location = new Point(153, 3);
+            txbox_name.Name = "txbox_name";
+            txbox_name.ReadOnly = true;
+            txbox_name.Size = new Size(724, 39);
+            txbox_name.TabIndex = 2;
+            // 
+            // nud_priority
+            // 
+            nud_priority.Dock = DockStyle.Fill;
+            nud_priority.Location = new Point(153, 46);
+            nud_priority.Name = "nud_priority";
+            nud_priority.ReadOnly = true;
+            nud_priority.Size = new Size(724, 39);
+            nud_priority.TabIndex = 11;
+            // 
+            // dtp_deadline
+            // 
+            dtp_deadline.Dock = DockStyle.Fill;
+            dtp_deadline.Enabled = false;
+            dtp_deadline.Location = new Point(153, 132);
+            dtp_deadline.Name = "dtp_deadline";
+            dtp_deadline.Size = new Size(724, 39);
+            dtp_deadline.TabIndex = 12;
             // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(dgv_items, 0, 1);
             tableLayoutPanel3.Controls.Add(label5, 0, 0);
-            tableLayoutPanel3.Controls.Add(listView1, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(3, 181);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -212,6 +221,65 @@
             tableLayoutPanel3.Size = new Size(880, 475);
             tableLayoutPanel3.TabIndex = 4;
             // 
+            // dgv_items
+            // 
+            dgv_items.AllowUserToAddRows = false;
+            dgv_items.AllowUserToDeleteRows = false;
+            dgv_items.AllowUserToOrderColumns = true;
+            dgv_items.AllowUserToResizeRows = false;
+            dgv_items.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_items.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_items.Columns.AddRange(new DataGridViewColumn[] { col_completed, col_name, col_priority, col_category, col_deadline });
+            tableLayoutPanel3.SetColumnSpan(dgv_items, 4);
+            dgv_items.Dock = DockStyle.Fill;
+            dgv_items.ImeMode = ImeMode.NoControl;
+            dgv_items.Location = new Point(3, 43);
+            dgv_items.MultiSelect = false;
+            dgv_items.Name = "dgv_items";
+            dgv_items.ReadOnly = true;
+            dgv_items.RowHeadersVisible = false;
+            dgv_items.RowHeadersWidth = 82;
+            dgv_items.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_items.ScrollBars = ScrollBars.Vertical;
+            dgv_items.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_items.Size = new Size(874, 429);
+            dgv_items.TabIndex = 6;
+            // 
+            // col_completed
+            // 
+            col_completed.HeaderText = "Completed";
+            col_completed.MinimumWidth = 10;
+            col_completed.Name = "col_completed";
+            col_completed.ReadOnly = true;
+            // 
+            // col_name
+            // 
+            col_name.HeaderText = "Name";
+            col_name.MinimumWidth = 10;
+            col_name.Name = "col_name";
+            col_name.ReadOnly = true;
+            // 
+            // col_priority
+            // 
+            col_priority.HeaderText = "Priority";
+            col_priority.MinimumWidth = 10;
+            col_priority.Name = "col_priority";
+            col_priority.ReadOnly = true;
+            // 
+            // col_category
+            // 
+            col_category.HeaderText = "Category";
+            col_category.MinimumWidth = 10;
+            col_category.Name = "col_category";
+            col_category.ReadOnly = true;
+            // 
+            // col_deadline
+            // 
+            col_deadline.HeaderText = "DeadLine";
+            col_deadline.MinimumWidth = 10;
+            col_deadline.Name = "col_deadline";
+            col_deadline.ReadOnly = true;
+            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -221,30 +289,23 @@
             label5.TabIndex = 0;
             label5.Text = "Subtasks";
             // 
-            // listView1
-            // 
-            listView1.Dock = DockStyle.Fill;
-            listView1.Location = new Point(3, 43);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(874, 429);
-            listView1.TabIndex = 1;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // ShowFormForm
+            // ShowForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(886, 710);
             Controls.Add(tableLayoutPanel1);
-            Name = "ShowFormForm";
+            Name = "ShowForm";
             Text = "Form2";
             Load += ShowForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nud_priority).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_items).EndInit();
             ResumeLayout(false);
         }
 
@@ -253,18 +314,23 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label3;
-        private TextBox textBox5;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox txbox_category;
         private Label label4;
         private Label label2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txbox_name;
         private TableLayoutPanel tableLayoutPanel3;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button button1;
         private Button button2;
         private Label label5;
-        private ListView listView1;
+        private DataGridView dgv_items;
+        private DataGridViewCheckBoxColumn col_completed;
+        private DataGridViewTextBoxColumn col_name;
+        private DataGridViewTextBoxColumn col_priority;
+        private DataGridViewTextBoxColumn col_category;
+        private DataGridViewTextBoxColumn col_deadline;
+        private NumericUpDown nud_priority;
+        private DateTimePicker dtp_deadline;
     }
 }

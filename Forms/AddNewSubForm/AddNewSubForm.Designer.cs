@@ -35,15 +35,16 @@
             tableLayoutPanel2_new = new TableLayoutPanel();
             lbl_deadline_new = new Label();
             txbox_category = new TextBox();
-            txbox_priority = new TextBox();
             lbl_category_new = new Label();
             lbl_priority_new = new Label();
             lbl_name_new = new Label();
             txbox_name = new TextBox();
             dtp_deadline = new DateTimePicker();
+            nud_priority = new NumericUpDown();
             tableLayoutPanel1_new.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2_new.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nud_priority).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1_new
@@ -98,12 +99,12 @@
             tableLayoutPanel2_new.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2_new.Controls.Add(lbl_deadline_new, 0, 3);
             tableLayoutPanel2_new.Controls.Add(txbox_category, 1, 2);
-            tableLayoutPanel2_new.Controls.Add(txbox_priority, 1, 1);
             tableLayoutPanel2_new.Controls.Add(lbl_category_new, 0, 2);
             tableLayoutPanel2_new.Controls.Add(lbl_priority_new, 0, 1);
             tableLayoutPanel2_new.Controls.Add(lbl_name_new, 0, 0);
             tableLayoutPanel2_new.Controls.Add(txbox_name, 1, 0);
             tableLayoutPanel2_new.Controls.Add(dtp_deadline, 1, 3);
+            tableLayoutPanel2_new.Controls.Add(nud_priority, 1, 1);
             tableLayoutPanel2_new.Dock = DockStyle.Fill;
             tableLayoutPanel2_new.Location = new Point(3, 3);
             tableLayoutPanel2_new.Name = "tableLayoutPanel2_new";
@@ -132,14 +133,6 @@
             txbox_category.Name = "txbox_category";
             txbox_category.Size = new Size(724, 39);
             txbox_category.TabIndex = 7;
-            // 
-            // txbox_priority
-            // 
-            txbox_priority.Dock = DockStyle.Fill;
-            txbox_priority.Location = new Point(153, 107);
-            txbox_priority.Name = "txbox_priority";
-            txbox_priority.Size = new Size(724, 39);
-            txbox_priority.TabIndex = 6;
             // 
             // lbl_category_new
             // 
@@ -187,6 +180,14 @@
             dtp_deadline.Size = new Size(724, 39);
             dtp_deadline.TabIndex = 11;
             // 
+            // nud_priority
+            // 
+            nud_priority.Dock = DockStyle.Fill;
+            nud_priority.Location = new Point(153, 107);
+            nud_priority.Name = "nud_priority";
+            nud_priority.Size = new Size(724, 39);
+            nud_priority.TabIndex = 12;
+            // 
             // addNewSubForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -195,11 +196,11 @@
             Controls.Add(tableLayoutPanel1_new);
             Name = "addNewSubForm";
             Text = "Form2";
-            Load += AddNewSubForm_Load;
             tableLayoutPanel1_new.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2_new.ResumeLayout(false);
             tableLayoutPanel2_new.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nud_priority).EndInit();
             ResumeLayout(false);
         }
 
@@ -209,7 +210,6 @@
         private TableLayoutPanel tableLayoutPanel2_new;
         private Label lbl_deadline_new;
         private TextBox txbox_category;
-        private TextBox txbox_priority;
         private Label lbl_category_new;
         private Label lbl_priority_new;
         private Label lbl_name_new;
@@ -218,5 +218,6 @@
         private Button btn_close;
         private Button btn_ok;
         private DateTimePicker dtp_deadline;
+        private NumericUpDown nud_priority;
     }
 }

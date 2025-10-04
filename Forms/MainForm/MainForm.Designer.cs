@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btn_remove = new Button();
+            btn_add = new Button();
+            btn_show = new Button();
+            btn_edit = new Button();
             dgv_items = new DataGridView();
             col_completed = new DataGridViewCheckBoxColumn();
             col_name = new DataGridViewTextBoxColumn();
@@ -50,10 +50,10 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Controls.Add(button1, 3, 1);
-            tableLayoutPanel1.Controls.Add(button2, 2, 1);
-            tableLayoutPanel1.Controls.Add(button3, 1, 1);
-            tableLayoutPanel1.Controls.Add(button4, 0, 1);
+            tableLayoutPanel1.Controls.Add(btn_remove, 3, 1);
+            tableLayoutPanel1.Controls.Add(btn_add, 2, 1);
+            tableLayoutPanel1.Controls.Add(btn_show, 1, 1);
+            tableLayoutPanel1.Controls.Add(btn_edit, 0, 1);
             tableLayoutPanel1.Controls.Add(dgv_items, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -66,47 +66,49 @@
             tableLayoutPanel1.Size = new Size(774, 529);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // button1
+            // btn_remove
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.Location = new Point(582, 482);
-            button1.Name = "button1";
-            button1.Size = new Size(189, 44);
-            button1.TabIndex = 1;
-            button1.Text = "remove";
-            button1.UseVisualStyleBackColor = true;
+            btn_remove.Dock = DockStyle.Fill;
+            btn_remove.Location = new Point(582, 482);
+            btn_remove.Name = "btn_remove";
+            btn_remove.Size = new Size(189, 44);
+            btn_remove.TabIndex = 1;
+            btn_remove.Text = "Remove";
+            btn_remove.UseVisualStyleBackColor = true;
+            btn_remove.Click += btn_remove_Click;
             // 
-            // button2
+            // btn_add
             // 
-            button2.Dock = DockStyle.Fill;
-            button2.Location = new Point(389, 482);
-            button2.Name = "button2";
-            button2.Size = new Size(187, 44);
-            button2.TabIndex = 2;
-            button2.Text = "add new";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btn_add.Dock = DockStyle.Fill;
+            btn_add.Location = new Point(389, 482);
+            btn_add.Name = "btn_add";
+            btn_add.Size = new Size(187, 44);
+            btn_add.TabIndex = 2;
+            btn_add.Text = "Add new";
+            btn_add.UseVisualStyleBackColor = true;
+            btn_add.Click += btn_add_Click;
             // 
-            // button3
+            // btn_show
             // 
-            button3.Dock = DockStyle.Fill;
-            button3.Location = new Point(196, 482);
-            button3.Name = "button3";
-            button3.Size = new Size(187, 44);
-            button3.TabIndex = 3;
-            button3.Text = "open";
-            button3.UseVisualStyleBackColor = true;
+            btn_show.Dock = DockStyle.Fill;
+            btn_show.Location = new Point(196, 482);
+            btn_show.Name = "btn_show";
+            btn_show.Size = new Size(187, 44);
+            btn_show.TabIndex = 3;
+            btn_show.Text = "Show";
+            btn_show.UseVisualStyleBackColor = true;
+            btn_show.Click += btn_show_Click;
             // 
-            // button4
+            // btn_edit
             // 
-            button4.Dock = DockStyle.Fill;
-            button4.Location = new Point(3, 482);
-            button4.Name = "button4";
-            button4.Size = new Size(187, 44);
-            button4.TabIndex = 4;
-            button4.Text = "edit";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += btn_edit;
+            btn_edit.Dock = DockStyle.Fill;
+            btn_edit.Location = new Point(3, 482);
+            btn_edit.Name = "btn_edit";
+            btn_edit.Size = new Size(187, 44);
+            btn_edit.TabIndex = 4;
+            btn_edit.Text = "Edit";
+            btn_edit.UseVisualStyleBackColor = true;
+            btn_edit.Click += btn_edit_Click;
             // 
             // dgv_items
             // 
@@ -131,7 +133,6 @@
             dgv_items.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_items.Size = new Size(768, 473);
             dgv_items.TabIndex = 5;
-            dgv_items.CellContentClick += dataGridView1_CellContentClick;
             // 
             // col_completed
             // 
@@ -184,10 +185,10 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btn_remove;
+        private Button btn_add;
+        private Button btn_show;
+        private Button btn_edit;
         private DataGridView dgv_items;
         private DataGridViewCheckBoxColumn col_completed;
         private DataGridViewTextBoxColumn col_name;
